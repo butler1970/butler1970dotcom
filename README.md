@@ -11,11 +11,11 @@ docker run --rm --interactive --tty -v $(pwd):/app composer install
 ```
 ./vendor/bin/sail up
 ```
-- If necessary, generate database schema by executing database migrations.
+- Generate database schema by executing database migrations.
 ```
 docker compose exec laravel.test php artisan migrate
 ```
-- If necessary, seed database by executing database seed command.
+- Seed database by executing database seed command.
 ```
 docker compose exec laravel.test php artisan db:seed
 ```
