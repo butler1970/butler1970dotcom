@@ -15,28 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/token/test', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/login', function (Request $request) {
+Route::post('/token/generate', function (Request $request) {
     try {
-        if(Auth::attempt(['email' => 'butler1970@gmail.com', 'password' => '1234'])){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $user = Auth::user();
-            $success['token'] =  $user->createToken('frontend')->plainTextToken;
+            $success['token'] =  $user->createToken($request->token_name)->plainTextToken;
             $success['name'] =  $user->name;
 
             return $success;
         }
         else{
-            return ['error' => 'Unauthorized'];
+            return ['error' => "Unauthorized"];
         }
 
     } catch (Throwable $e) {
         return ['error' => $e->getmessage()];
     }
-});
-
-Route::get('/test', function (Request $request) {
-    return ['result' => 'success'];
 });
