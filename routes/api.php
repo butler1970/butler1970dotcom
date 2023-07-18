@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/login', function (Request $request) {
+    try {
+        if(Auth::attempt(['email' => 'butler1970@gmail.com', 'password' => '1234'])){
+            $user = Auth::user();
+            $success['token'] =  $user->createToken('frontend')->plainTextToken;
+            $success['name'] =  $user->name;
+
+            return $success;
+        }
+        else{
+            return ['error' => 'Unauthorized'];
+        }
+
+    } catch (Throwable $e) {
+        return ['error' => $e->getmessage()];
+    }
+});
+
+Route::get('/test', function (Request $request) {
+    return ['result' => 'success'];
 });

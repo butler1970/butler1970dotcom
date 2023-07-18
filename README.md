@@ -13,5 +13,3 @@ docker run --rm --interactive --tty -v $(pwd):/app composer install
 ```
 ./vendor/bin/sail up
 ```
-
-- Browse to http://localhost

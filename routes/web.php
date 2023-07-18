@@ -13,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/info', function () {
+    ob_start();
+    phpinfo();
+    $result = ob_get_contents();
+    ob_get_clean();
+
+    return $result;
 });
+
