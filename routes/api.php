@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/token/test', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:sanctum')->post('/lead/store', [LeadController::class, 'store']);
+Route::middleware('auth:sanctum')->post('/lead/update/{id}', [LeadController::class, 'update']);
+Route::middleware('auth:sanctum')->get('/lead/find/{id}', [LeadController::class, 'find']);
 
 Route::post('/token/generate', function (Request $request) {
     try {
