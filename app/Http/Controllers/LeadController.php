@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lead;
+use App\Service\LeadService;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
+    private LeadService $leadService;
+
+    public function __construct(LeadService $leadService)
+    {
+        $this->leadService = $leadService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -20,12 +27,11 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        $lead = new Lead;
-        $lead->first_name = $request->first_name;
-        $lead->middle_name = $request->middle_name;
-        $lead->last_name = $request->last_name;
-
-        $lead->save();
+        $this->leadService->persistLead([
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
+        ]);
     }
 
     /**
@@ -33,7 +39,7 @@ class LeadController extends Controller
      */
     public function find(string $id)
     {
-        return Lead::find($id)->toJson();
+        return $this->leadService->findLead($id);
     }
 
     /**
@@ -41,12 +47,11 @@ class LeadController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $lead = Lead::find($id);
-        $lead->first_name = $request->first_name;
-        $lead->middle_name = $request->middle_name;
-        $lead->last_name = $request->last_name;
-
-        $lead->save();
+        $this->leadService->updateLead([
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
+        ], $id);
     }
 
     /**
