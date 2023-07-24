@@ -2,10 +2,7 @@ runtime: php
 env: flex
 
 runtime_config:
-  operating_system: "ubuntu22"
-  runtime_version: "8.2"
-
-document_root: public
+  document_root: public
 
 # Ensure we skip ".env", which is only for local development
 skip_files:
