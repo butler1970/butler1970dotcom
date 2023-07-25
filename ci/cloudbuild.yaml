@@ -1,5 +1,5 @@
 steps:
-  - name: 'step1'
+  - name: 'ubuntu'
     args: ['echo', 'step #1']
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
@@ -9,7 +9,7 @@ steps:
         gcloud config set app/cloud_build_timeout 3600 \
         && gcloud app deploy -q --promote -v=$BUILD_ID \
         --project=$PROJECT_ID
-  - name: 'step2'
+  - name: 'ubuntu'
     args: ['echo', 'step #2']
   - name: 'composer-upgrade'
     entrypoint: 'bash'
@@ -17,7 +17,7 @@ steps:
       - '-c'
       - |
         composer self-update
-  - name: 'step3'
+  - name: 'ubuntu'
     args: ['echo', 'step #3']
 
 timeout: '3600s'
