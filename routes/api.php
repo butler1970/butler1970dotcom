@@ -41,3 +41,7 @@ Route::post('/token/generate', function (Request $request) {
         return ['error' => $e->getmessage()];
     }
 });
+
+Route::get('/get_ip_address', function (Request $request) {
+    return '127.0.0.1';
+});
