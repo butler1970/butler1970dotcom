@@ -43,5 +43,5 @@ Route::post('/token/generate', function (Request $request) {
 });
 
 Route::get('/get_ip_address', function (Request $request) {
-    return $_SERVER['REMOTE_ADDR'];
+    return file_get_contents('https://api.ipify.org');
 });
