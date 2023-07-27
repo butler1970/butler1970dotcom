@@ -40,16 +40,3 @@ Route::post('/token/generate', function (Request $request) {
         return ['error' => $e->getmessage()];
     }
 });
-
-Route::get('/get_ip_address', function (Request $request) {
-    // if user from the share internet
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    } //if user is from the proxy
-    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } //if user is from the remote address
-    else {
-        return $_SERVER['REMOTE_ADDR'];
-    }
-});
