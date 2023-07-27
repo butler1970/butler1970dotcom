@@ -43,5 +43,5 @@ Route::post('/token/generate', function (Request $request) {
 });
 
 Route::get('/get_ip_address', function (Request $request) {
-    return '127.0.0.1';
+    return $_SERVER['REMOTE_ADDR'];
 });
