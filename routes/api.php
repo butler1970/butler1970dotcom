@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LeadController;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +40,15 @@ Route::post('/token/generate', function (Request $request) {
     } catch (Throwable $e) {
         return ['error' => $e->getmessage()];
     }
+});
+
+Route::post('/ip/location', function (Request $request) {
+    $ip = $request->ip;
+
+    $client = new Client([
+        // Base URI is used with relative requests
+        'base_uri' => "https://api.findip.net/$ip/?token=a4b542192dd34a8682ec1c71f942b01a",
+    ]);
+
+    return $client->request('GET', '', [])->getBody();
 });
