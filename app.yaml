@@ -24,6 +24,14 @@ resources:
   disk_size_gb: 100
 
 env_variables:
+  # follow the part of the tutorial on setting up your SQL database
+  DB_CONNECTION: mysql
+  DB_HOST: localhost
+  DB_DATABASE: butler1970dotcom
+  DB_USERNAME: root
+  DB_PASSWORD: @~vf6vm<rt^?1usp
+  DB_SOCKET: /cloudsql/savvy-temple-393819:us-central1:butler1970dotcom
+
   # Put production environment variables here.
   APP_DEBUG: true
   APP_ENV: production
@@ -31,3 +39,9 @@ env_variables:
   APP_NAME: "Laravel"
 
   LOG_LEVEL: debug
+
+#we need this for the flex environment
+beta_settings:
+  # for Cloud SQL, set this value to the Cloud SQL connection name,
+  # e.g. "project:region:cloudsql-instance"
+  cloud_sql_instances: savvy-temple-393819:us-central1:butler1970dotcom
