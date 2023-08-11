@@ -30,7 +30,6 @@ env_variables:
   DB_DATABASE: butler1970dotcom
   DB_USERNAME: root
   DB_PASSWORD: "@~vf6vm<rt^?1usp"
-  #DB_SOCKET: /cloudsql/savvy-temple-393819:us-central1:butler1970dotcom
 
   # Put production environment variables here.
   APP_DEBUG: true
