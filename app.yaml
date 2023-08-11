@@ -39,9 +39,3 @@ env_variables:
   APP_NAME: "Laravel"
 
   LOG_LEVEL: debug
-
-#we need this for the flex environment
-beta_settings:
-  # for Cloud SQL, set this value to the Cloud SQL connection name,
-  # e.g. "project:region:cloudsql-instance"
-  cloud_sql_instances: savvy-temple-393819:us-central1:butler1970dotcom
