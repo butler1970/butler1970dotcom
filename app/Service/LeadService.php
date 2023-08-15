@@ -6,7 +6,7 @@ use App\Models\Lead;
 
 class LeadService
 {
-    public function persistLead(array $data)
+    public function persistLead(array $data): Lead
     {
         $lead = new Lead;
 
@@ -15,14 +15,16 @@ class LeadService
         $lead->last_name = $data['last_name'];
 
         $lead->save();
+
+        return $lead;
     }
 
-    public function findLead(string $id)
+    public function findLead(string $id): Lead
     {
         return Lead::find($id)->toJson();
     }
 
-    public function updateLead(array $data, string $id)
+    public function updateLead(array $data, string $id): Lead
     {
         $lead = Lead::find($id);
 
@@ -31,5 +33,7 @@ class LeadService
         $lead->last_name = $data['last_name'];
 
         $lead->save();
+
+        return $lead;
     }
 }

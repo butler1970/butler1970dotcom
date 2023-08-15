@@ -12,7 +12,13 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/');
+        $response = $this->get('/info');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_ip_location_works(): void {
+        $response = $this->post('/api/ip/location', ['ip' => '68.224.134.148']);
 
         $response->assertStatus(200);
     }
