@@ -2,27 +2,29 @@
 
 namespace App\Service;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Client\RequestException;
+use Illuminate\Support\Facades\Http;
 
 class IpLocationService
 {
     private string $token;
 
+    /**
+     * @param string $token
+     */
     public function __construct(string $token) {
         $this->token = $token;
     }
 
     /**
-     * @throws GuzzleException
+     * @param string $ip
+     * @return string|null
+     * @throws RequestException
      */
-    public function lookUpIp(string $ip): string {
-
-        $client = new Client([
-            'base_uri' => "https://api.findip.net/$ip/?token=$this->token",
-        ]);
-
-        return $client->request('GET', '', [])->getBody();
+    public function lookUpIp(string $ip): ?string {
+        return Http::withUrlParameters([
+            'endpoint' => 'https://api.findip.net',
+            'ip' => $ip,
+        ])->get('{+endpoint}/{ip}/', ['token' => $this->token])->body();
     }
-
 }
