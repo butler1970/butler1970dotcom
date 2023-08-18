@@ -12,4 +12,10 @@ class ApiTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_feed_hackernoon(): void {
+        $response = $this->get('/api/feed/hackernoon');
+
+        $response->assertStatus(200);
+    }
 }

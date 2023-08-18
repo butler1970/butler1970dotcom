@@ -170,6 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\LeadServiceProvider::class,
         App\Providers\IpLocationServiceProvider::class,
+        App\Providers\FeedReaderServiceProvider::class,
     ])->toArray(),
 
     /*

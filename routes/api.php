@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedReaderController;
 use App\Http\Controllers\IpLocationController;
 use App\Http\Controllers\LeadController;
 use Illuminate\Http\Request;
@@ -43,3 +44,4 @@ Route::middleware('auth:sanctum')->post('/lead/update/{id}', [LeadController::cl
 Route::middleware('auth:sanctum')->get('/lead/find/{id}', [LeadController::class, 'find']);
 
 Route::post('/ip/location', [IpLocationController::class, 'location']);
+Route::get('/feed/hackernoon', [FeedReaderController::class, 'hackernoon']);
