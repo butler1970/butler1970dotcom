@@ -3,6 +3,7 @@
 use App\Http\Controllers\FeedReaderController;
 use App\Http\Controllers\IpLocationController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\ProxyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,5 @@ Route::middleware('auth:sanctum')->get('/lead/find/{id}', [LeadController::class
 
 Route::post('/ip/location', [IpLocationController::class, 'location']);
 Route::get('/feed/hackernoon', [FeedReaderController::class, 'hackernoon']);
+Route::get('/proxy/zenquote/today', [ProxyController::class, 'getZenQuoteToday']);
+Route::get('/proxy/zenquote/random', [ProxyController::class, 'getZenQuoteRandom']);
