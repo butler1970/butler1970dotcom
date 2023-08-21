@@ -1,9 +1,9 @@
 runtime: php
-env: flex
+#env: flex
 
-runtime_config:
-  operating_system: "ubuntu22"
-  document_root: public
+#runtime_config:
+#  operating_system: "ubuntu22"
+#  document_root: public
 
 build_env_variables:
   GOOGLE_COMPOSER_VERSION: 2.2.1
@@ -18,10 +18,10 @@ automatic_scaling:
   min_num_instances: 1
   max_num_instances: 1
 
-resources:
-  cpu: 2
-  memory_gb: 4
-  disk_size_gb: 100
+#resources:
+#  cpu: 2
+#  memory_gb: 4
+#  disk_size_gb: 100
 
 env_variables:
   FINDIP_TOKEN: "a4b542192dd34a8682ec1c71f942b01a"
