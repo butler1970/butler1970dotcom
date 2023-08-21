@@ -27,11 +27,11 @@ env_variables:
   FINDIP_TOKEN: "a4b542192dd34a8682ec1c71f942b01a"
 
   # follow the part of the tutorial on setting up your SQL database
-  DB_CONNECTION: mysql
-  DB_HOST: 172.19.16.3
-  DB_DATABASE: butler1970dotcom
-  DB_USERNAME: root
-  DB_PASSWORD: "@~vf6vm<rt^?1usp"
+#  DB_CONNECTION: mysql
+#  DB_HOST: 172.19.16.3
+#  DB_DATABASE: butler1970dotcom
+#  DB_USERNAME: root
+#  DB_PASSWORD: "@~vf6vm<rt^?1usp"
 
   # Put production environment variables here.
   APP_DEBUG: true
