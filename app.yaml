@@ -10,10 +10,6 @@ build_env_variables:
 
 service: api
 
-# Ensure we skip ".env", which is only for local development
-#skip_files:
-#  - .env
-
 #automatic_scaling:
 #  min_num_instances: 1
 #  max_num_instances: 1
