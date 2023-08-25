@@ -46,5 +46,6 @@ Route::middleware('auth:sanctum')->get('/lead/find/{id}', [LeadController::class
 
 Route::post('/ip/location', [IpLocationController::class, 'location']);
 Route::get('/feed/hackernoon', [FeedReaderController::class, 'hackernoon']);
+Route::post('/feed/by-domain', [FeedReaderController::class, 'byDomain']);
 Route::get('/proxy/zenquote/today', [ProxyController::class, 'getZenQuoteToday']);
 Route::get('/proxy/zenquote/random', [ProxyController::class, 'getZenQuoteRandom']);
